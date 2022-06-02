@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %} {{quiz.name}} {% endblock %}
+
+{% block content %}
+
+<div class="card text-center ">
+<h1>{{quiz.name}}</h1>
+<h3>{{quiz.description}}</h3>
+
+<form action="/resultados/{{quiz.id}}" method="post"> {% csrf_token %}
+{% for i in questionsMultiselect %}
+<div class="card mb-3 bg-light">
+<div class="card-body">
+<h5 class="card-header">{{i.title}}</h5>
+	<input type="radio" id="a{{i.id}}" name="m{{i.id}}" value="{{i.option_a}}" required>
+	<label for="a{{i.id}}">{{i.option_a}}</label><br>
+
+	<input type="radio" id="b{{i.id}}" name="m{{i.id}}" value="{{i.option_b}}" required>
+	<label for="b{{i.id}}">{{i.option_b}}</label><br>
+
+	<input type="radio" id="c{{i.id}}" name="m{{i.id}}" value="{{i.option_c}}" required>
+	<label for="c{{i.id}}">{{i.option_c}}</label><br>
+
+	<input type="radio" id="d{{i.id}}" name="m{{i.id}}" value="{{i.option_d}}" required>
+	<label for="d{{i.id}}">{{i.option_d}}</label><br>
+</div>
+</div>
+{% endfor %}
+{% for i in questionsTrueFalse %}
+<div class="card mb-3 bg-light">
+<div class="card-body">
+<h5 class="card-header">{{i.title}}</h5>
+	<input type="radio" id="t{{i.id}}" name="tf{{i.id}}" value="True" required>
+	<label for="t{{i.id}}"> Verdadero </label><br>
+
+	<input type="radio" id="f{{i.id}}" name="tf{{i.id}}" value="False" required>
+	<label for="f{{i.id}}"> Falso </label><br>
+</div>
+</div>
+{% endfor %}
+	<input class="btn btn-primary btn-lg btn-block" type="submit" value="Procesar">
+</div>
+</form>
+
+{% endblock %}

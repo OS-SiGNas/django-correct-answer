@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="card bg-light text-center">
+<div class="card-header"> ¡Has finalizado! </div>
+	<div class="card-body">
+	<h5 class="card-title"> Acertaste {{puntaje}} de {{total}} </h5>
+	<p class="card-text">Has probado tu conocimiento en el Quiz Nro: {{n}} . Te invito a realizar otro...</p>
+	<a href="/" class="btn btn-outline-primary"> Comenzar otro </a>
+</div>
+</div>
+{% endblock %}
