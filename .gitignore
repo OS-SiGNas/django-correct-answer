@@ -1,8 +1,7 @@
 **/__pycache__
 .vim/
-bin/
-include/
-lib/
+.git/
+venv/
 .directory
 db.sqlite3
 pyvenv.cfg
